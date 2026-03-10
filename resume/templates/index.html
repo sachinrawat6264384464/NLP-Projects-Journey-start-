@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>AI Resume Analyzer</title>
+
+<style>
+
+body{
+    font-family: Arial;
+    background: linear-gradient(135deg,#667eea,#764ba2);
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin:0;
+}
+
+.container{
+    background:white;
+    padding:40px;
+    border-radius:12px;
+    width:500px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+input[type=file]{
+    margin-top:20px;
+}
+
+button{
+    margin-top:20px;
+    padding:12px 25px;
+    border:none;
+    background:#5a4bff;
+    color:white;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#3c2fff;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>AI Resume Analyzer</h2>
+
+<form action="/predict" method="post" enctype="multipart/form-data">
+
+<input type="file" name="resume" accept=".pdf" required>
+
+<br>
+
+<button type="submit">Analyze Resume</button>
+
+</form>
+
+</div>
+
+</body>
+</html>

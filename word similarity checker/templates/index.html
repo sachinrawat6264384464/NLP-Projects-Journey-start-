@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Word Similarity Finder</title>
+
+<style>
+
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#4facfe,#00f2fe);
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.container{
+    background:white;
+    padding:40px;
+    border-radius:12px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    width:460px;
+    text-align:center;
+}
+
+h2{
+    margin-bottom:10px;
+}
+
+p{
+    color:#555;
+    font-size:14px;
+}
+
+input{
+    width:80%;
+    padding:10px;
+    margin-top:15px;
+    border-radius:6px;
+    border:1px solid #ccc;
+}
+
+button{
+    padding:10px 20px;
+    margin-top:15px;
+    background:#4facfe;
+    border:none;
+    color:white;
+    border-radius:6px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+button:hover{
+    background:#2d8cf0;
+}
+
+.result{
+    margin-top:20px;
+    background:#f7f7f7;
+    padding:15px;
+    border-radius:8px;
+    text-align:left;
+}
+
+.result ul{
+    padding-left:20px;
+}
+
+.result li{
+    margin:6px 0;
+}
+
+.demo{
+    margin-top:25px;
+    font-size:13px;
+    color:#444;
+}
+
+.demo span{
+    background:#eee;
+    padding:6px 10px;
+    margin:4px;
+    border-radius:5px;
+    display:inline-block;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+.demo span:hover{
+    background:#4facfe;
+    color:white;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Word Similarity Finder</h2>
+
+<p>
+This tool uses a Word2Vec model to find words that appear in a similar context.
+Try entering words related to food reviews.
+</p>
+
+<form method="POST">
+
+<input type="text" id="wordInput" name="word"
+placeholder="Enter a word like: taste, food, amazing">
+
+<br>
+
+<button type="submit">Find Similar Words</button>
+
+</form>
+
+{% if results %}
+
+<div class="result">
+
+<h3>Similar Words for "{{word}}"</h3>
+
+{% if results is string %}
+
+<p>{{results}}</p>
+
+{% else %}
+
+<ul>
+
+{% for item in results %}
+
+<li>
+<b>{{item.word}}</b> — Similarity: {{item.score}}%
+</li>
+
+{% endfor %}
+
+</ul>
+
+{% endif %}
+
+</div>
+
+{% endif %}
+
+<div class="demo">
+
+<p><b>Demo Words You Can Try:</b></p>
+
+<span onclick="fillWord('taste')">taste</span>
+<span onclick="fillWord('flavor')">flavor</span>
+<span onclick="fillWord('food')">food</span>
+<span onclick="fillWord('coffee')">coffee</span>
+<span onclick="fillWord('chocolate')">chocolate</span>
+<span onclick="fillWord('good')">good</span>
+<span onclick="fillWord('amazing')">amazing</span>
+
+</div>
+
+</div>
+
+<script>
+
+function fillWord(word){
+    document.getElementById("wordInput").value = word;
+}
+
+</script>
+
+</body>
+</html>

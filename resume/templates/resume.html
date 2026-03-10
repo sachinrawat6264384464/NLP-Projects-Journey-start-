@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Resume Analysis Result</title>
+<style>
+body{
+    font-family: Arial;
+    background: linear-gradient(135deg,#667eea,#764ba2);
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin:0;
+}
+.container{
+    background:white;
+    padding:40px;
+    border-radius:12px;
+    width:450px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+h2{
+    margin-bottom:20px;
+    color:#333;
+}
+.result-box{
+    background:#f4f6ff;
+    padding:20px;
+    border-radius:8px;
+    margin-top:15px;
+}
+.domain{
+    font-size:22px;
+    font-weight:bold;
+    color:#5a4bff;
+}
+.score{
+    font-size:18px;
+    margin-top:10px;
+    color:#333;
+}
+a{
+    display:inline-block;
+    margin-top:25px;
+    text-decoration:none;
+    background:#5a4bff;
+    color:white;
+    padding:10px 20px;
+    border-radius:6px;
+    transition:0.3s;
+}
+a:hover{
+    background:#3c2fff;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<h2>AI Resume Analysis</h2>
+<div class="result-box">
+<h3>Predicted Domain</h3>
+<p class="domain">{{ prediction }}</p>
+
+{% if score %}
+<p class="score">Confidence Score: <b>{{ score }}%</b></p>
+{% endif %}
+
+</div>
+<a href="/">Analyze Another Resume</a>
+</div>
+</body>
+</html>
