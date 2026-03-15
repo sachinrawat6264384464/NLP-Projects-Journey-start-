@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sentence Similarity Detector</title>
+
+<style>
+
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#667eea,#764ba2);
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin:0;
+}
+
+.container{
+    background:white;
+    padding:40px;
+    border-radius:12px;
+    width:500px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+}
+
+h2{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    margin-bottom:15px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:14px;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    background:#667eea;
+    border:none;
+    color:white;
+    font-size:16px;
+    border-radius:8px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#5563d1;
+}
+
+.result{
+    margin-top:20px;
+    text-align:center;
+    font-size:20px;
+    font-weight:bold;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Sentence Similarity Checker</h2>
+
+<form method="POST">
+
+<input type="text" name="sentence1" placeholder="Enter Sentence 1" required>
+
+<input type="text" name="sentence2" placeholder="Enter Sentence 2" required>
+
+<button type="submit">Check Similarity</button>
+
+</form>
+
+{% if score %}
+<div class="result">
+Similarity Score: {{ score }}
+</div>
+{% endif %}
+
+</div>
+
+</body>
+</html>
